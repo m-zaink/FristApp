@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(HomePage());
+void main() => runApp(MyApp());
 
-class HomePage extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  List<String> _products = ['Food Tester'];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,14 +23,31 @@ class HomePage extends StatelessWidget {
           style: TextStyle(fontFamily: "Gamja Flower", fontSize: 30),
         ),
       ),
-      body: Padding(
-          padding: EdgeInsets.all(20),
-          child: Text(
-            "Hello World. I'm the new app from inside flutter.",
-            style: TextStyle(fontSize: 30, fontFamily: "Gamja Flower"),
-          )),
+      body: Column(children: [
+        Column(
+          children: _products
+              .map((element) => Card(
+                      child: Column(
+                    children: [
+                      Image.asset("assets/eiffel.jpg"),
+                      Text(
+                        element,
+                        style:
+                            TextStyle(fontSize: 30, fontFamily: "Gamja Flower"),
+                      ),
+                    ],
+                  )))
+              .toList(),
+        )
+      ]),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => print("Floating Button Pressed."),
+        onPressed: () {
+          setState(() {
+            _products.add('Advanced Food Tester');
+          });
+
+          print(_products);
+        },
         child: Text(
           "Press",
           style: TextStyle(fontFamily: "Gamja Flower", fontSize: 20),
