@@ -4,6 +4,9 @@ import 'dart:math';
 import './products.dart';
 
 class ProductsManager extends StatefulWidget {
+  final String first_product;
+
+  ProductsManager(this.first_product);
   @override
   State<StatefulWidget> createState() {
     return _ProductsManagerState();
@@ -11,7 +14,13 @@ class ProductsManager extends StatefulWidget {
 }
 
 class _ProductsManagerState extends State<ProductsManager> {
-  List<String> _products = ["Something"];
+  List<String> _products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _products.add(widget.first_product);
+  }
 
   @override
   Widget build(BuildContext context) {
