@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: ProductsManager('First card.'),
-    );
+      theme: ThemeData(primarySwatch: Colors.teal),
+      home: ProductsManager('Some random stuff'));
   }
 }

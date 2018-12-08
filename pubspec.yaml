@@ -55,10 +55,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Gamja Flower
+    - family: PatuaOne
       fonts:
-        - asset: fonts/GamjaFlower-Regular.ttf
-          style: italic 
+        - asset: fonts/PatuaOne-Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
