@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './pages/details.dart';
+
 class Products extends StatelessWidget {
   final List<String> products;
   final int index;
@@ -19,12 +21,18 @@ class Products extends StatelessWidget {
         children: <Widget>[
           cardImage,
           ListTile(
-            leading: Text(
-              products[index],
-              style: myStyle,
-            ),
-            trailing: Icon(Icons.favorite),
-          )
+              leading: Text(
+                products[index],
+                style: myStyle,
+              ),
+              trailing: IconButton(
+                  icon: Icon(
+                    Icons.list,
+                  ),
+                  onPressed: (() =>
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (BuildContext context) => Details(products[index])
+                      )))))
         ],
       ),
     );
