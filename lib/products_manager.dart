@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import './products.dart';
+import './products_cards.dart';
 
 class ProductsManager extends StatefulWidget {
   final String firstProduct;
@@ -15,6 +15,7 @@ class ProductsManager extends StatefulWidget {
 }
 
 class _ProductsManagerState extends State<ProductsManager> {
+  List<int> favList = [];
   List<String> _products = [];
 
   @override
@@ -31,6 +32,15 @@ class _ProductsManagerState extends State<ProductsManager> {
     );
   }
 
+  void _updateFavList(int index) {
+    //TODO: Optimize favoriting of the products.
+    setState(
+      () {
+        !favList.contains(index) ? favList.add(index) : favList.removeAt(index);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +48,13 @@ class _ProductsManagerState extends State<ProductsManager> {
       body: ListView.builder(
         itemCount: _products.length,
         itemBuilder: (BuildContext context, int index) {
-          return Products(_products, index, _deleteProduct);
+          return ProductCards(
+            _products,
+            index,
+            deleteProduct: _deleteProduct,
+            updateFavList: _updateFavList,
+            favList: favList,
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(

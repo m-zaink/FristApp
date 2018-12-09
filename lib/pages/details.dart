@@ -20,7 +20,7 @@ class Details extends StatelessWidget {
                 deleteProduct(index);
                 Navigator.pop(context);
               },
-            )
+            ),
           ],
         ),
         body: Center(
