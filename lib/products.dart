@@ -9,30 +9,46 @@ class Products extends StatelessWidget {
 
   Products(this.products, this.index);
 
+  Widget buildIconButton(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        Icons.list,
+      ),
+      onPressed: (() => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => Details(products[index]),
+            ),
+          )),
+    );
+  }
+
+  Widget buildText(String text) {
+    return Text(
+      text,
+      style: myStyle,
+    );
+  }
+
+  Widget buildCardImage(int index) {
+    if (index % 2 == 0)
+      return Image.asset('assets/eiffel.jpg');
+    else
+      return Image.asset('assets/hawaii.jpg');
+  }
+
   @override
   Widget build(BuildContext context) {
-    Image cardImage;
-    if (index % 2 == 0)
-      cardImage = Image.asset('assets/eiffel.jpg');
-    else
-      cardImage = Image.asset('assets/hawaii.jpg');
+    Image cardImage = buildCardImage(index);
+
     return Card(
       child: Column(
         children: <Widget>[
           cardImage,
           ListTile(
-              leading: Text(
-                products[index],
-                style: myStyle,
-              ),
-              trailing: IconButton(
-                  icon: Icon(
-                    Icons.list,
-                  ),
-                  onPressed: (() =>
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (BuildContext context) => Details(products[index])
-                      )))))
+            leading: buildText(products[index]),
+            trailing: buildIconButton(context),
+          )
         ],
       ),
     );

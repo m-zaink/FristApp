@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {
   final String details;
+  final TextStyle myStyle = TextStyle(fontFamily: 'PatuaOne');
 
   Details(this.details);
 
@@ -13,7 +14,10 @@ class Details extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: Text(details),
+            child: Text(
+              details,
+              style: myStyle,
+            ),
           ),
         ));
   }
