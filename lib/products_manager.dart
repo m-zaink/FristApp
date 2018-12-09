@@ -23,24 +23,35 @@ class _ProductsManagerState extends State<ProductsManager> {
     _products.add(widget.firstProduct);
   }
 
+  void _deleteProduct(int index) {
+    setState(
+      () {
+        _products.removeAt(index);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Stateful App")),
-        body: ListView.builder(
-            itemCount: _products.length,  
-            itemBuilder: (BuildContext context, int index) {
-              
-              return Products(_products, index);
-            }),
-        floatingActionButton: FloatingActionButton(
-          child: Text("Press"),
-          onPressed: () {
-            setState(() {
+      appBar: AppBar(title: Text("Stateful App")),
+      body: ListView.builder(
+        itemCount: _products.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Products(_products, index, _deleteProduct);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Text("Press"),
+        onPressed: () {
+          setState(
+            () {
               _products
                   .add("Some more random stuff. ${Random().nextInt(2000)}");
-            });
-          },
-        ));
+            },
+          );
+        },
+      ),
+    );
   }
 }

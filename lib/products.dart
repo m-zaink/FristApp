@@ -6,8 +6,34 @@ class Products extends StatelessWidget {
   final List<String> products;
   final int index;
   final TextStyle myStyle = TextStyle(fontFamily: 'PatuaOne');
+  final Function deleteProduct;
 
-  Products(this.products, this.index);
+  Products(this.products, this.index, this.deleteProduct);
+
+  Widget buildButtonBar(BuildContext context) {
+    return ButtonBar(
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.delete),
+          onPressed: () {
+            print('[Delete Button Pressed]');
+            deleteProduct(index);
+          },
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.list,
+          ),
+          onPressed: (() => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => Details(products[index], deleteProduct, index),
+                ),
+              )),
+        )
+      ],
+    );
+  }
 
   Widget buildIconButton(BuildContext context) {
     return IconButton(
@@ -17,7 +43,7 @@ class Products extends StatelessWidget {
       onPressed: (() => Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => Details(products[index]),
+              builder: (BuildContext context) => Details(products[index], deleteProduct, index),
             ),
           )),
     );
@@ -47,7 +73,8 @@ class Products extends StatelessWidget {
           cardImage,
           ListTile(
             leading: buildText(products[index]),
-            trailing: buildIconButton(context),
+            // trailing: buildIconButton(context),
+            trailing: buildButtonBar(context),
           )
         ],
       ),
