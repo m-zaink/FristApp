@@ -2,7 +2,10 @@ import "package:flutter/material.dart";
 
 import './products_manager.dart';
 
+
+//Driver method that kicks off the app.
 void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   @override
