@@ -1,17 +1,17 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
-import './products_manager.dart';
+import './pages/home_page.dart';
 
-
-//Driver method that kicks off the app.
-void main() => runApp(MyApp());
-
+main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final TextStyle textStyle = TextStyle(fontSize: 20.0);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.teal),
-      home: ProductsManager('Some random stuff'));
+      title: 'Stateful App',
+      home: HomePage(),
+    );
   }
 }
