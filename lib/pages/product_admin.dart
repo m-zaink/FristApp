@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './products_page.dart';
-import './product_list_page.dart';
-import './product_create_page.dart';
+import './tab_pages/product_list_page.dart';
+import './tab_pages/product_create_page.dart';
 
 class ProductAdmin extends StatefulWidget {
   @override
@@ -22,9 +21,9 @@ class _ProductAdminState extends State<ProductAdmin> {
           ),
           ListTile(
             title: Text('Browse Products'),
-            onTap: () => Navigator.pushReplacement(
+            onTap: () => Navigator.pushReplacementNamed(
                   context,
-                  MaterialPageRoute(builder: (context) => ProductsPage()),
+                  '/'
                 ),
           )
         ],
