@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './pages/home_page.dart';
+import './pages/auth.dart';
+import './pages/products_page.dart';
+import './pages/product_admin.dart';
 
 //This is the driver class through which the app is initiated.
 
@@ -13,7 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Stateful App',
-      home: HomePage(),
+      // home: HomePage(),
+      routes: {
+        '/': (context) => ProductsPage(),
+        '/admin': (context) => ProductAdmin(),
+      },
     );
   }
 }

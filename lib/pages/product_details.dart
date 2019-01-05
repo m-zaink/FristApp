@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
-  final String details = 'Details';
+  final String details;
   final TextStyle textStyle = TextStyle(fontSize: 20.0);
   final int index;
 
-  ProductDetails(this.index);
+  ProductDetails({this.index, this.details});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ProductDetails extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.delete),
             onPressed: () {
-              Navigator.pop(context, {'deleted':true, 'index':index});
+              Navigator.pop(context, {'deleted': true, 'index': index});
             },
           )
         ],

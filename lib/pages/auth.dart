@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './product_manager.dart';
+import './products_page.dart';
 
 //This class defines the landing screen for the app.
 //It has a LogIn button, upon whose press, the user is navigated to the
@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(title: Text('Hello World')),
       body: Align(
         child: RaisedButton(
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => ProductManager()),
+                    builder: (BuildContext context) => ProductsPage()),
               ),
         ),
       ),

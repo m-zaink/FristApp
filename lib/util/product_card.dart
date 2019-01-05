@@ -27,7 +27,7 @@ class _ProductCardState extends State<ProductCard> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (BuildContext context) => ProductDetails(widget.index),
+            builder: (BuildContext context) => ProductDetails(index: widget.index, details:widget.productDetails['title']),
           ),
         ).then(
           (returnValue) {
