@@ -10,20 +10,13 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Details'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () {
-              Navigator.pop(context, {'deleted': true, 'index': index});
-            },
-          )
-        ],
-      ),
-      body: Center(
-        child: Text(details, style: textStyle),
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).primaryColorDark,
+          automaticallyImplyLeading: false,
+          title: Text('Product Details'),
+        ),
+        body: Center(
+          child: Text(details, style: textStyle),
+        ));
   }
 }

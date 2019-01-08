@@ -44,6 +44,8 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => ProductsPage(_products, _addProduct, _deleteProduct),
         '/admin': (context) => ProductAdmin(),
       },
+      // onGenerateRoute: 
+      // onUnknownRoute:
     );
   }
 }

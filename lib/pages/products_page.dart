@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-import '../util/product_card.dart';
+import './util/product_card.dart';
 
 //This file contains the ProductsManager class that
 //handles the ProductsPage.
