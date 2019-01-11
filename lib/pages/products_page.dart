@@ -10,30 +10,19 @@ import './util/product_card.dart';
 //rendered using ProductCard()
 
 class ProductsPage extends StatelessWidget {
-  final List<Map<String, String>> products;
-  final Function addProduct;
+  final List<Map<String, dynamic>> products;
   final Function deleteProduct;
 
-  ProductsPage(this.products, this.addProduct, this.deleteProduct);
-
-  Widget _buildAddProductButton(BuildContext context) {
-    return RaisedButton(
-      color: Theme.of(context).buttonColor,
-      child: Text('Add Products'),
-      onPressed: () => addProduct(),
-    );
-  }
+  ProductsPage(this.products, this.deleteProduct);
 
   Widget _buildProductListView(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) => ProductCard(
-              productDetails: products[index],
-              deleteProduct: deleteProduct,
-              index: index,
-            ),
-        itemCount: products.length,
-      ),
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) => ProductCard(
+            productDetails: products[index],
+            deleteProduct: deleteProduct,
+            index: index,
+          ),
+      itemCount: products.length,
     );
   }
 
@@ -59,12 +48,7 @@ class ProductsPage extends StatelessWidget {
     return Scaffold(
       drawer: _buildDrawer(context),
       appBar: AppBar(title: Text('Products')),
-      body: Column(
-        children: <Widget>[
-          _buildAddProductButton(context),
-          _buildProductListView(context),
-        ],
-      ),
+      body: _buildProductListView(context),
     );
   }
 }

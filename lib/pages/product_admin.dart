@@ -4,6 +4,10 @@ import './tab_pages/product_list_page.dart';
 import './tab_pages/product_create_page.dart';
 
 class ProductAdmin extends StatefulWidget {
+  final Function addProduct;
+
+  ProductAdmin(this.addProduct);
+
   @override
   State<StatefulWidget> createState() {
     return _ProductAdminState();
@@ -21,10 +25,7 @@ class _ProductAdminState extends State<ProductAdmin> {
           ),
           ListTile(
             title: Text('Browse Products'),
-            onTap: () => Navigator.pushReplacementNamed(
-                  context,
-                  '/'
-                ),
+            onTap: () => Navigator.pushReplacementNamed(context, '/'),
           )
         ],
       ),
@@ -54,7 +55,7 @@ class _ProductAdminState extends State<ProductAdmin> {
         ),
         body: TabBarView(
           children: <Widget>[
-            ProductCreatePage(),
+            ProductCreatePage(widget.addProduct),
             ProductListPage(),
           ],
         ),

@@ -6,7 +6,7 @@ import '../product_details.dart';
 //render a card.
 
 class ProductCard extends StatefulWidget {
-  final Map<String, String> productDetails;
+  final Map<String, dynamic> productDetails;
   final TextStyle textStyle = TextStyle(fontSize: 20);
   final Function deleteProduct;
   final int index;
@@ -29,7 +29,7 @@ class _ProductCardState extends State<ProductCard> {
             builder: (context) {
               return ProductDetails(
                 index: widget.index,
-                details: widget.productDetails['title'],
+                details: widget.productDetails['details'],
               );
             });
       },

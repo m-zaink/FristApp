@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './pages/products_page.dart';
 import './pages/product_admin.dart';
-import 'package:english_words/english_words.dart';
 
 //This is the driver class through which the app is initiated.
 
@@ -18,8 +17,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final TextStyle textStyle = TextStyle(fontSize: 20.0);
 
-  List<Map<String, String>> _products = [];
-  WordPair _wordPair;
+  List<Map<String, dynamic>> _products = [];
 
   void _deleteProduct(int index) {
     setState(() {
@@ -27,11 +25,9 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _addProduct() {
-    _wordPair = WordPair.random();
+  void _addProduct(Map<String, dynamic> product) {
     setState(() {
-      _products
-          .add({'title': _wordPair.asPascalCase, 'image': 'assets/hawaii.jpg'});
+      _products.add(product);
     });
   }
 
@@ -41,10 +37,10 @@ class _MyAppState extends State<MyApp> {
       title: 'Stateful App',
       // home: AuthPage(),
       routes: {
-        '/': (context) => ProductsPage(_products, _addProduct, _deleteProduct),
-        '/admin': (context) => ProductAdmin(),
+        '/': (context) => ProductsPage(_products, _deleteProduct),
+        '/admin': (context) => ProductAdmin(_addProduct),
       },
-      // onGenerateRoute: 
+      // onGenerateRoute:
       // onUnknownRoute:
     );
   }
