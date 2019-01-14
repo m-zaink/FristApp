@@ -25,7 +25,7 @@ class _ProductAdminState extends State<ProductAdmin> {
           ),
           ListTile(
             title: Text('Browse Products'),
-            onTap: () => Navigator.pushReplacementNamed(context, '/'),
+            onTap: () => Navigator.pushReplacementNamed(context, '/products'),
           )
         ],
       ),

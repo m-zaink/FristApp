@@ -15,7 +15,8 @@ class ProductDetails extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text('Product Details'),
         ),
-        body: Center(
+        body: Container(
+          padding: EdgeInsets.all(20.0),
           child: Text(details, style: textStyle),
         ));
   }

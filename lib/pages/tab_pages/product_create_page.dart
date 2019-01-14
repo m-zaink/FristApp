@@ -46,14 +46,18 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
           RaisedButton(
             child: Text('Save'),
             onPressed: () {
-              Map<String, dynamic> product = {
-                'title': _title,
-                'details': _details,
-                'price': _price,
-                'image': 'assets/hawaii.jpg',
-              };
-              widget.addProduct(product);
-              Navigator.pushReplacementNamed(context, '/');
+              if (_title == null || _details == null || _price == null)
+                Navigator.pushReplacementNamed(context, '/products');
+              else {
+                Map<String, dynamic> product = {
+                  'title': _title,
+                  'details': _details,
+                  'price': _price,
+                  'image': 'assets/hawaii.jpg',
+                };
+                widget.addProduct(product);
+                Navigator.pushReplacementNamed(context, '/products');
+              }
             },
           )
         ],

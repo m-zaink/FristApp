@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import './pages/products_page.dart';
 import './pages/product_admin.dart';
-
+import './pages/auth.dart';
 //This is the driver class through which the app is initiated.
 
 void main() => runApp(MyApp());
@@ -35,9 +35,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Stateful App',
-      // home: AuthPage(),
       routes: {
-        '/': (context) => ProductsPage(_products, _deleteProduct),
+        '/': (context) => AuthPage(),
+        '/products': (context) => ProductsPage(_products, _deleteProduct),
         '/admin': (context) => ProductAdmin(_addProduct),
       },
       // onGenerateRoute:
